@@ -13,10 +13,10 @@ const App = () => {
     if (result) setGame(gameCopy);
   };
 
-  const handleVoiceCommand = async (command) => {
+  const handleVoiceCommand = async (text) => {
     try {
-      console.log(command);
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/voice-command/`, { command });
+      console.log(text);
+      const response = await axios.post(`http://localhost:8000/predict`, { text });
       handleMove(response.data.move);
     } catch (error) {
       console.error('Error processing voice command:', error);

@@ -12,6 +12,7 @@ const processVoiceCommand = async (req, res) => {
   });
   const move = gptResponse.data.choices[0].text.trim();
   res.json({ move });
+  console.log(openai);
 };
 
 const handleMove = (req, res) => {
